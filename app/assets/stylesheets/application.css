@@ -1,0 +1,59 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+
+body {
+    min-height: 100vh; /*表示領域の高さ100％*/
+    position: relative; /*配置相対的*/
+    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ",
+      Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+    }
+
+header {
+    background-color: #f08080;
+    height: 80px;
+    font-weight: bold; /*太字*/
+    display: flex;
+    justify-content: space-between;/*横＝等間隔*/
+    align-items: center;/*高さ＝中央揃え*/
+  }
+  
+header a {
+    color: white; 
+    text-decoration: none; 
+  }
+
+header h1 {
+    margin-left: 20px;
+    color: white;
+  }
+  
+.header-list {
+    display: flex;
+    align-items: center;
+  }
+  
+header ul {
+    display: flex; 
+  }
+  
+header li {
+    list-style: none;
+    margin-right: 40px;
+  }
+  
+footer {
+    color: white;
+    height: 30px;
+    background-color: #696969;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+.space{
+    margin-right : 10px;
+  }

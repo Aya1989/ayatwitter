@@ -1,0 +1,8 @@
+<h1>MyPage</h1>
+<h3>名前</h3>
+<p><%= @loguser.name %></p>
+<h3>メアド</h3>
+<p><%= @loguser.email %></p>
+<h3>プロフィール</h3>
+<p><%= @loguser.profile %></p>
+<%= link_to "編集する", edit_user_path(current_user.id) %>   

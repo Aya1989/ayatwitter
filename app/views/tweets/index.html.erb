@@ -1,0 +1,50 @@
+<%= stylesheet_link_tag 'index', :media => "all" %>
+
+<div class="tweets-container">
+<br><h2>Tweet一覧</h2><br>
+
+<br>
+  ユーザー名　　
+  <%= current_user.name %>
+  
+  <span class ="space2"><%= link_to 'ユーザー詳細ページへ', mypage_path(current_user.id) %></span>
+  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+  
+</br>
+
+<h3>投稿を検索</h3>
+ <%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
+   <%= text_field_tag :search %>
+   <%= submit_tag '検索する'  %>
+<% end %>
+
+<br>
+<%= page_entries_info @tweets %>
+
+  <% @tweets.each do |t| %>
+    <div class="tweet">
+      <div class="main-box">
+        <div class="left-container"><%= t.body %></div>
+        <div class="right-container">
+          
+          <span class ="space"><%= t.user.name %></span>
+          <div class = "red">いいね♡<%= t.liked_users.count %></div>
+          <span class ="space"><%= link_to "詳細", tweet_path(t.id) %></span>
+          <% if current_user.id == t.user.id %>
+          <span class ="space"><%= link_to "編集", edit_tweet_path(t.id) %></span>
+          <%= link_to "削除", tweet_path(t.id), method: :delete %>
+          <% end %>
+        
+        </div>
+        </div>
+        
+        <%= image_tag t.image_url,:size => '200×200' %>
+        
+        
+        <p class="time"><%= t.created_at %></p>
+    </div>
+  <% end %>
+
+  <%= paginate @tweets %>
+
+</div>

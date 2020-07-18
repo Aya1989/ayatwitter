@@ -1,0 +1,16 @@
+<%= stylesheet_link_tag 'login', :media => "all" %>
+<div class = center_all>
+<br><h2>ユーザー詳細編集ページ</h2></br>
+<%= form_for @user do |f| %>
+    <%= f.label :名前 %>
+    <br><%= f.text_field :name, :size => 50 %></br>
+    
+    <%= f.label :メールアドレス %>
+    <br><%= f.text_field :email, :size => 50 %></br>
+    
+    <%= f.label :プロフィール %>
+    <br><%= f.text_field :profile, :size => 91 %><br> 
+    
+    <br><%= f.submit "編集する" %></br>
+<% end %>
+</div>

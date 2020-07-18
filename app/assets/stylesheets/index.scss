@@ -1,0 +1,51 @@
+.tweets-container {
+    width: 50%;
+    margin: 10px auto;
+  }
+
+h2{
+    border-bottom: double 6px #f08080;
+  }
+  
+h3 {
+    margin-top: 30px;
+  }
+  
+.tweet {
+    border-top: solid #f08080;
+    margin-top: 10px;
+    padding-top: 20px;
+  }
+  
+.main-box {
+    margin: 10px ;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+.time {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+a {
+    color: #f08080; 
+    text-decoration: none; 
+  }
+  
+.space{
+    margin-right : 10px;
+  }
+  
+.space2{
+    margin-right : 10px;
+    margin-left : 20px;
+  }
+  
+.red{
+    color:#ff3300;
+  }
+  
+  
+
+  

@@ -1,0 +1,12 @@
+<%= stylesheet_link_tag 'login', :media => "all" %>
+<div class = center_all>
+<br><h2>ツイート内容編集</h2></br>
+<%= form_for @tweet do |f| %>
+    
+    <%= f.label :ツイート内容 %>
+    <%= f.text_field :body, :size => 140 %>
+    
+    <%= f.submit "編集する" %>
+
+<% end %>
+</div>

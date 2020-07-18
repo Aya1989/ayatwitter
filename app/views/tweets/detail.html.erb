@@ -1,0 +1,60 @@
+<%= stylesheet_link_tag 'login', :media => "all" %>
+<div class = center_all>
+<br><h2>Tweet詳細</h2></br>
+<div class="tweet">
+  <h3>名前</h3>
+  <div class = "under"><p><%= @tweet.user.name %></p></div>
+
+  <h3>プロフィール</h3>
+  <div class = "under"><p><%= @tweet.user.profile %></p></div>
+
+  <h3>ツイート内容</h3>
+  <div class = "under"><p><%= @tweet.body %></p></div>     
+     
+
+  
+  <h3>いいね♡: <%= @tweet.likes.count %></h3>
+  
+  <% if current_user.already_liked?(@tweet) %>
+    <%= button_to 'いいね♡をやめる', tweet_like_path(@tweet), method: :delete %>
+  <% else %>
+    <%= button_to 'いいね♡', tweet_likes_path(@tweet) %>
+  <% end %>
+
+  <h3>いいねしたユーザー</h3>
+    <% @tweet.liked_users.each do |user| %>
+    <li><%= user.name %></li>
+  <% end %>
+
+  <div class = "comment-wrapper">
+  <div class = "top"><h3>コメント一覧</h3></div>
+  <% @comments.each do |c| %>
+      <div>
+      
+      <span class ="space"><%= c.user.name unless c.user.blank? %></span>
+      <%= c.comment %>
+      
+      </div>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= form_with(model: [@tweet, @comment], local: true) do |f| %>
+      <%= f.text_area :comment, :size => "93" %>
+        <%= button_tag type: "submit" do %>
+          <i class = "far fa-comments"></i> コメントする
+        <% end %>
+    <% end %>
+  <% end %>
+  </div>
+
+  <div class = "top"><p><%= @tweet.created_at %></p></div>
+  
+</div>
+
+<br>
+  <span class ="space"><%= link_to "Tweet一覧に戻る", tweets_path %></span>
+  <% if current_user.id == @tweet.user.id %>
+  <%= link_to "ツイート内容を編集する", edit_tweet_path(@tweet.id) %> 
+  <% end %> 
+</br>
+</div> 
